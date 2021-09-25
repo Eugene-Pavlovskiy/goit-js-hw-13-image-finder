@@ -20,7 +20,17 @@
     <!-- Nav -->
     <div class="nav__container">
       <nav class="nav__header">
-        <a href="#"><img src="./images/photo.png" class="logo" alt="" width="50px"/></a>
+        <div class="booth">
+          <!-- <video class="cam" id="video" autoplay></video> -->
+          <a href="#" id="capture" class="booth-capture-button">
+            Make
+            <!-- <input type="hidden" id="picIndex" value="0" accept="image/*; capture=camera"> -->
+            <!-- <input class="make__foto" type="file" accept="image/*; capture=camera"> -->
+            <img src="./images/photo.png" class="logo"  id="photo" alt="Ваша фотография" alt="" width="50px"/>
+            Foto
+          </a>
+          <canvas id="canvas" width="400" height="300"></canvas>
+         </div>
       </nav>
     </div>
 
