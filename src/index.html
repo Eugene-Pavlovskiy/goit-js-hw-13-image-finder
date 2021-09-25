@@ -17,8 +17,24 @@
     <link rel="stylesheet" href="../node_modules/basiclightbox/dist/basicLightbox.min.css" />
   </head>
   <body>
+    <!-- Nav -->
+    <div class="nav__container">
+      <nav class="nav__header">
+        <a href="#"><img src="./images/photo.png" class="logo" alt="" width="50px"/></a>
+      </nav>
+    </div>
+
+    <div class="content">
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
     <include src="./partials/gallery.html"></include>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer__container">
+      <nav class="footer__nav">
+        <a href="#"><img src="./images/double-up-arrow.png" class="footer__logo" alt="" width="15px"/></a>
+      </nav>
+    </div>
 
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./index.js"></script>
