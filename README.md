@@ -1,40 +1,40 @@
 
-# Критерии приема
+# Admission criteria
 
-- Созданы репозитории `goit-js-hw-13-image-finder`.
-- При сдаче домашней работы есть две ссылки для каждого проекта: на исходные
-  файлы и рабочую страницу на GitHub pages.
-- При посещении рабочей страницы (GitHub pages) задания, в консоли нету ошибок и
-  предупреждений
-- Имена переменных и функций понятные, описательные
-- Проект собран с помощью
+- Repositories created `goit-js-hw-13-image-finder`.
+- When you turn in your homework, there are two links for each project: to the source
+  files and the working page on GitHub pages.
+- When visiting the working page (GitHub pages) of a job, there are no errors or warnings in the console.
+  warnings
+- Variable and function names are clear, descriptive
+- The project was assembled with the help of
   [parcel-project-template](https://github.com/goitacademy/parcel-project-template)
-- Код отформатирован с помощью `Prettier`
-- Добавь минимальную стилизацию
-- Есть файл `apiService.js` с дефолтным экспортом объекта отвечающего за логику
-  HTTP-запросов к API
+- The code is formatted with `Prettier`
+- Add minimal styling
+- There is a file `apiService.js` with the default export of the object responsible for the logic of the
+  HTTP requests to API
 
-## Задание - поиск изображений
+## The assignment is an image search
 
-Напиши небольшое приложение поиска и просмотра изображений по ключевому слову
+Write a small application to search and browse images by keyword
 
-## Инструкции Pixabay API
+## Instructions Pixabay API
 
-Для HTTP-запросов используй публичный
-[Pixabay API](https://pixabay.com/api/docs/). Зарегистрируйся и получи ключ.
+For HTTP requests, use the public
+[Pixabay API](https://pixabay.com/api/docs/). Register and get the key.
 
-URL-строка запроса:
+URL-query string:
 
 ```bash
-https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=что_искать&page=номер_страницы&per_page=12&key=твой_ключ
+https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=что_искать&page=номер_страницы&per_page=12&key=your_key
 ```
 
-Pixabay API поддерживает пагинацию, пусть в ответе приходит по 12 объектов,
-установлено в параметре `per_page`. По умолчанию параметр `page` равен `1`. При
-каждом последующем запросе `page` увеличивается на 1, а при поиске по новому
-ключевому слову необходимо сбрасывать его значение в `1`.
+Pixabay API supports pagination and lets 12 objects come in the response,
+and set in the `per_page` parameter. By default, the `page` parameter is set to `1`. At
+Each subsequent query `page` is increased by 1, and when searching for a new
+keyword, its value should be reset to `1`.
 
-Каждое изобаржение описывается объектом.
+Each isobar is described by an object.
 
 ```json
 {
@@ -63,18 +63,18 @@ Pixabay API поддерживает пагинацию, пусть в отве�
 }
 ```
 
-Тебе интересны следующие свойства:
+You're interested in the following properties:
 
-- `webformatURL` - ссылка на маленькое изображение для списка карточек
-- `largeImageURL` - ссылка на большое изображение (смотри пункт 'дополнительно')
-- `likes` - количество лайков
-- `views` - количество просмотров
-- `comments` - количество комментариев
-- `downloads` - количество загрузок
+- `webformatURL` - link to a small image for the card list
+- `largeImageURL` - link to a large image (see 'additional')
+- `likes` - number of likes
+- `views` - number of views
+- `comments` - number of comments
+- `downloads` - number of downloads
 
-## Форма поиска
+## Search form
 
-Создает DOM-элемент следующей структуры. Можно использовать шаблонизацию.
+Creates a DOM element of the following structure. Templating can be used.
 
 ```html
 <form class="search-form" id="search-form">
@@ -87,19 +87,19 @@ Pixabay API поддерживает пагинацию, пусть в отве�
 </form>
 ```
 
-## Галерея изображений
+## Images Gallery
 
-Создает DOM-элемент следующей структуры.
+Creates a DOM element of the following structure.
 
 ```html
 <ul class="gallery">
-  <!-- Список <li> с карточками изображений -->
+  <!-- List <li> with picture cards -->
 </ul>
 ```
 
-## Карточка изображения
+## Image card
 
-Создает DOM-элемент следующей структуры.
+Creates a DOM element of the following structure.
 
 ```html
 <div class="photo-card">
@@ -126,9 +126,9 @@ Pixabay API поддерживает пагинацию, пусть в отве�
 </div>
 ```
 
-Для иконок используются
-[Material icons](https://google.github.io/material-design-icons/). Для их
-корректной работы достаточно в HTML-файле добавить ссылку на веб-шрифт.
+For icons are used
+[Material icons](https://google.github.io/material-design-icons/). To make them
+To make them work correctly, it is enough to add a link to the web font in the HTML file.
 
 ```html
 <link
@@ -137,17 +137,17 @@ Pixabay API поддерживает пагинацию, пусть в отве�
 />
 ```
 
-Или добавив npm-пакет `material-design-icons` и импортировав веб-шрифт в
+Or by adding the npm package `material-design-icons` and importing the web font into the
 `index.js`.
 
-## Кнопка 'Load more'
+## Button 'Load more'
 
-При нажатии на кнопку `Load more` должна догружаться следующая порция
-изображений и рендериться вместе с предыдущими.
+When you press the `Load more` button, the next portion of images should be loaded and rendered together with the previous ones.
+images and render together with the previous ones.
 
-Страница должна автоматически плавно проскроливаться после рендера изображений,
-чтобы перевести пользователя на следующие загруженные изображения. Используй
-метод
+The page should automatically scroll smoothly after rendering images,
+to take the user to the next uploaded images. Use the
+method
 [Element.scrollIntoView()](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView).
 
 ```js
@@ -158,15 +158,15 @@ element.scrollIntoView({
 });
 ```
 
-## Дополнительно
+## Additionally
 
-- Можно добавить плагин нотификаций, например
-  [pnotify](https://github.com/sciactive/pnotify), и показывать нотификации на
-  результат HTTP-запросов
-- Можно добавить функционал отображения большой версии изображения через плагин
-  модального окна, например
-  [basicLightbox](https://basiclightbox.electerious.com/), при клике на
-  изображение галереи
-- Вместо кнопки `Load more` можно сделать бесконечную загрузку при скроле
-  используя `Intersection Observer`.
-**Читать на других языках: [Русский](README.md), [Українська](README.ua.md).**
+- You could add a notifications plugin, for example
+  [pnotify](https://github.com/sciactive/pnotify), and show notifications on the
+  result of HTTP requests
+- You can add functionality to display a large version of an image via a plugin
+  modal window plugin, e.g.
+  [basicLightbox](https://basiclightbox.electerious.com/), when clicking on a
+  gallery image
+- Instead of the `Load more` button, you can do an infinite scrolling load
+  using `Intersection Observer'.
+**Read in other languages: [Russian](README.md), [Ukrainian](README.ua.md).**
